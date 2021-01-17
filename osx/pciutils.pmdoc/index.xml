@@ -1,0 +1,53 @@
+<pkmkdoc spec="1.12">
+    <properties>
+        <title>PCI Utilities</title>
+	<build>pciutils.pkg</build>
+	<organization>com.pciutils</organization>
+	<userSees ui="easy"/>
+        <min-target os="2"/>
+        <domain system="true"/>
+    </properties>
+    <distribution>
+        <versions min-spec="1.000000"/><scripts>
+            function CheckHardwareCompatibility() {
+            if (system.sysctl('hw.machine') == 'i386') {
+            return true;
+            }
+            
+            if (system.sysctl('hw.machine') == 'x86_64') {
+            return true;
+            }
+            
+            return false;
+            }
+        </scripts>
+    </distribution>
+    <description>The PCI Utilities package contains a library for portable access to PCI bus configuration registers and several utilities based on this library.
+    </description>
+    <contents>
+        <choice title="PCI Utilities" id="choice0" starts_selected="true" starts_enabled="true" starts_hidden="false">
+            <pkgref id="com.pciutils.pciutils.pkg"/>
+        </choice>
+    </contents>
+    <resources bg-scale="none" bg-align="bottomleft">
+        <locale lang="en">
+	    <resource relative="true" mod="true" type="license">../COPYING</resource>
+	    <resource relative="true" mod="true" type="welcome">Welcome.rtf</resource>
+        </locale>
+    </resources>
+    <requirements>
+        <requirement id="java" operator="eq" value="true">
+            <argument>CheckHardwareCompatibility()</argument>
+	    <message-title>Unsupported Architecture</message-title>
+	    <message>PCI utilities are only supported on Intel® based Apple systems.</message>
+        </requirement>
+    </requirements>
+    <flags/>
+    <item type="file">01root.xml</item>
+    <mod>properties.userDomain</mod>
+    <mod>properties.systemDomain</mod>
+    <mod>properties.anywhereDomain</mod>
+    <mod>properties.title</mod>
+    <mod>description</mod>
+    <mod>postinstallActions.actions</mod>
+</pkmkdoc>

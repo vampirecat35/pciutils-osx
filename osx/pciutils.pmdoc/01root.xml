@@ -1,0 +1,24 @@
+<pkgref spec="1.12" uuid="94522C23-7BEF-4761-8AA3-4FE2E2784DB7">
+    <config>
+        <identifier>com.pciutils.pciutils.pkg</identifier>
+	<version>1</version>
+	<description></description>
+	<post-install type="none"/>
+        <requireAuthorization/>
+        <installFrom relative="true" mod="true">../root/</installFrom>
+        <flags>
+            <followSymbolicLinks/>
+        </flags>
+        <packageStore type="internal"></packageStore>
+	<mod>parent</mod>
+	<mod>installFrom.path</mod>
+	<mod>identifier</mod>
+    </config>
+    <contents>
+	<filter>/CVS$</filter>
+	<filter>/\.svn$</filter>
+	<filter>/\.cvsignore$</filter>
+	<filter>/\.cvspass$</filter>
+	<filter>/\.DS_Store$</filter>
+    </contents>
+</pkgref>
